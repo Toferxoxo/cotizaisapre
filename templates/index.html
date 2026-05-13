@@ -160,6 +160,21 @@
     .faq-item.open .faq-a{display:block;}
     @media(max-width:700px){.faq-grid{grid-template-columns:1fr;}.logos-grid{gap:24px;}}
 
+    /* CARRUSEL */
+    .carousel-sec{background:white;padding:48px 0;overflow:hidden;border-top:1px solid var(--brd);}
+    .carousel-label{text-align:center;font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:28px;}
+    .carousel-track-wrap{overflow:hidden;position:relative;}
+    .carousel-track-wrap::before,.carousel-track-wrap::after{content:'';position:absolute;top:0;width:120px;height:100%;z-index:2;}
+    .carousel-track-wrap::before{left:0;background:linear-gradient(to right,white,transparent);}
+    .carousel-track-wrap::after{right:0;background:linear-gradient(to left,white,transparent);}
+    .carousel-track{display:flex;gap:16px;width:max-content;animation:scroll 28s linear infinite;}
+    .carousel-track:hover{animation-play-state:paused;}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .c-logo{display:flex;align-items:center;gap:10px;background:var(--bg);border:1.5px solid var(--brd);border-radius:100px;padding:10px 20px;white-space:nowrap;transition:border-color .2s,box-shadow .2s;}
+    .c-logo:hover{border-color:var(--acc);box-shadow:0 4px 12px rgba(37,99,235,.1);}
+    .c-logo-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+    .c-logo-name{font-size:13px;font-weight:700;color:var(--tx2);}
+
     footer{background:var(--tx);padding:40px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
     .flogo{font-size:15px;font-weight:800;color:white;display:flex;align-items:center;gap:9px;}
     .flinks{display:flex;gap:22px;}
@@ -450,6 +465,17 @@
     </div>
   </div>
 </div>
+
+<!-- CARRUSEL LOGOS -->
+<div class="carousel-sec">
+  <p class="carousel-label">Isapres y clínicas con las que trabajamos</p>
+  <div class="carousel-track-wrap">
+    <div class="carousel-track">
+      <div class="c-logo"><div class="c-logo-icon" style="background:#fff0f0">🏥</div><span class="c-logo-name">Clínica UC</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#f0f9ff">⚕️</div><span class="c-logo-name">MEDS</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#f0fdf4">🩺</div><span class="c-logo-name">Dávila</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#faf5ff">💊</div><span class="c-logo-name">Bupa</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fffbeb">🔬</div><span class="c-logo-name">Integramédica</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fff1f2">❤️</div><span class="c-logo-name">Clínica Bupa</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#eff6ff">🏨</div><span class="c-logo-name">Banmédica</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#f5f3ff">💙</div><span class="c-logo-name">MasVida</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#f0fdf4">🌿</div><span class="c-logo-name">Colmena</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fef2f2">✚</div><span class="c-logo-name">Cruz Blanca</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#eff6ff">🛡️</div><span class="c-logo-name">Consalud</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fffbeb">⭐</div><span class="c-logo-name">Vida Tres</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fff0f0">🏥</div><span class="c-logo-name">Clínica UC</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#f0f9ff">⚕️</div><span class="c-logo-name">MEDS</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#f0fdf4">🩺</div><span class="c-logo-name">Dávila</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#faf5ff">💊</div><span class="c-logo-name">Bupa</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fffbeb">🔬</div><span class="c-logo-name">Integramédica</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fff1f2">❤️</div><span class="c-logo-name">Clínica Bupa</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#eff6ff">🏨</div><span class="c-logo-name">Banmédica</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#f5f3ff">💙</div><span class="c-logo-name">MasVida</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#f0fdf4">🌿</div><span class="c-logo-name">Colmena</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fef2f2">✚</div><span class="c-logo-name">Cruz Blanca</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#eff6ff">🛡️</div><span class="c-logo-name">Consalud</span></div><div class="c-logo"><div class="c-logo-icon" style="background:#fffbeb">⭐</div><span class="c-logo-name">Vida Tres</span></div>
+    </div>
+  </div>
+</div>
+
 
 <footer>
   <div class="flogo">
