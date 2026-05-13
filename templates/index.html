@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CotizaIsapre | Asesoría Gratuita Chile 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5f7ff;--white:#ffffff;--card:#ffffff;
+      --acc:#2563eb;--acc2:#7c3aed;--teal:#0891b2;
+      --grn:#059669;--red:#ef4444;
+      --tx:#0f172a;--tx2:#334155;--mu:#64748b;
+      --brd:#e2e8f0;--brd2:#cbd5e1;
+      --shadow:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg:0 8px 32px rgba(37,99,235,.13);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Sora',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden;}
+
+    nav{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--brd);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
+    .nlogo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:var(--tx);text-decoration:none;}
+    .nlogo-i{width:36px;height:36px;background:linear-gradient(135deg,var(--acc),var(--acc2));border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:18px;}
+    .nlinks{display:flex;gap:28px;list-style:none;}
+    .nlinks a{color:var(--mu);font-size:14px;font-weight:500;text-decoration:none;transition:color .2s;}
+    .nlinks a:hover{color:var(--acc);}
+    .ncta{background:linear-gradient(135deg,var(--acc),var(--acc2));color:white;border:none;padding:10px 22px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:var(--shadow-lg);}
+
+    .hero{padding:72px 5% 60px;display:grid;grid-template-columns:1fr 480px;gap:56px;align-items:center;background:var(--white);position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%);z-index:0;border-radius:0 0 0 80px;}
+    .hero-l,.hero-r{position:relative;z-index:1;}
+    .hbadge{display:inline-flex;align-items:center;gap:7px;background:#eff6ff;border:1px solid #bfdbfe;color:var(--acc);font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;margin-bottom:1.5rem;}
+    .bdot{width:6px;height:6px;background:var(--grn);border-radius:50%;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+    h1{font-size:clamp(32px,4.5vw,52px);font-weight:800;line-height:1.1;margin-bottom:1.1rem;letter-spacing:-1.5px;}
+    .grad{background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hsub{font-size:16px;color:var(--mu);line-height:1.75;margin-bottom:2rem;max-width:460px;}
+    .hpills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem;}
+    .pill{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--brd);color:var(--tx2);font-size:13px;font-weight:500;padding:5px 13px;border-radius:100px;}
+    .hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1rem;}
+    .btn-p{background:linear-gradient(135deg,var(--acc),var(--acc2));color:white;border:none;padding:13px 26px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:var(--shadow-lg);transition:transform .15s;}
+    .btn-p:hover{transform:translateY(-2px);}
+    .btn-g{background:white;color:var(--tx2);border:1.5px solid var(--brd2);padding:13px 20px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:border-color .2s,color .2s;}
+    .btn-g:hover{border-color:var(--acc);color:var(--acc);}
+    .htrust{font-size:12px;color:var(--mu);}
+    .htrust span{color:var(--grn);font-weight:700;}
+
+    .hero-img-wrap{border-radius:22px;overflow:hidden;box-shadow:0 20px 56px rgba(37,99,235,.15);line-height:0;}
+    .hero-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;border-radius:22px;}
+
+    .stats{background:linear-gradient(135deg,var(--acc),var(--acc2));padding:28px 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
+    .stat p{font-size:clamp(22px,3vw,32px);font-weight:800;color:white;margin-bottom:3px;}
+    .stat span{font-size:13px;color:rgba(255,255,255,.75);font-weight:500;}
+
+    .sec{padding:72px 5%;}
+    .slbl{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--acc);margin-bottom:10px;}
+    .sttl{font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.5px;margin-bottom:8px;}
+    .ssub{font-size:15px;color:var(--mu);}
+
+    .cot-box{background:white;border:1px solid var(--brd);border-radius:20px;padding:32px;margin-top:36px;box-shadow:var(--shadow);}
+    .cflds{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:14px;align-items:end;}
+    .cg label{display:block;font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;}
+    .cg input,.cg select{width:100%;background:var(--bg);border:1.5px solid var(--brd);border-radius:10px;padding:12px 15px;color:var(--tx);font-size:15px;font-weight:600;font-family:inherit;outline:none;transition:border-color .2s;}
+    .cg input:focus,.cg select:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(37,99,235,.1);}
+    .cg input::placeholder{color:var(--mu);font-weight:400;}
+    .cbtn{background:linear-gradient(135deg,var(--acc),var(--acc2));color:white;border:none;border-radius:10px;padding:12px 24px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:var(--shadow-lg);}
+    #cres{display:none;margin-top:24px;padding-top:24px;border-top:1.5px dashed var(--brd);}
+    .rlbl{font-size:13px;font-weight:600;color:var(--mu);margin-bottom:14px;}
+    .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;}
+    .rcard{background:var(--bg);border:1.5px solid var(--brd);border-radius:12px;padding:14px;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s,box-shadow .2s;}
+    .rcard:hover{border-color:var(--acc);box-shadow:0 4px 12px rgba(37,99,235,.1);}
+    .rn{font-size:13px;font-weight:700;margin-bottom:2px;}
+    .rp{font-size:19px;font-weight:800;color:var(--acc);}
+    .rbadge{font-size:10px;background:#dcfce7;color:var(--grn);padding:3px 8px;border-radius:5px;font-weight:700;}
+
+    .steps-sec{background:linear-gradient(135deg,#eff6ff 0%,#f5f3ff 100%);}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+    .sc{background:white;border:1px solid var(--brd);border-radius:16px;padding:28px;position:relative;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;}
+    .sc:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(37,99,235,.12);}
+    .sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(135deg,var(--acc),var(--acc2));}
+    .snum{width:40px;height:40px;background:linear-gradient(135deg,var(--acc),var(--acc2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:white;margin-bottom:16px;}
+    .sc-ttl{font-size:16px;font-weight:800;margin-bottom:9px;}
+    .sc-txt{font-size:14px;color:var(--mu);line-height:1.65;}
+
+    .split-sec{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+    .split-img{position:relative;}
+    .split-img img{width:100%;height:360px;object-fit:cover;border-radius:20px;display:block;}
+    .img-tag{position:absolute;top:16px;left:16px;background:white;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;color:var(--acc);box-shadow:var(--shadow);border:1px solid var(--brd);}
+    .img-badge2{position:absolute;bottom:16px;right:16px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:white;border-radius:12px;padding:10px 16px;font-size:13px;font-weight:700;box-shadow:var(--shadow-lg);}
+    .split-txt h2{font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.5px;margin-bottom:14px;}
+    .split-txt p{font-size:15px;color:var(--mu);line-height:1.75;margin-bottom:24px;}
+    .split-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .split-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--tx2);line-height:1.5;}
+    .sli-dot{width:22px;height:22px;background:#dcfce7;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:1px;}
+
+    .cmpg{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;}
+    .cpc{background:white;border:1.5px solid var(--brd);border-radius:16px;padding:26px;box-shadow:var(--shadow);}
+    .cpc.ft{border-color:var(--acc);background:linear-gradient(145deg,#ffffff,#eff6ff);}
+    .cph{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1.5px solid var(--brd);}
+    .cpico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+    .if{background:#f1f5f9;}.ii{background:linear-gradient(135deg,#eff6ff,#f5f3ff);}
+    .cpn{font-size:16px;font-weight:800;}.cpt{font-size:11px;color:var(--mu);font-weight:500;margin-top:2px;}.cpt.pr{color:var(--acc);font-weight:700;}
+    .cpl{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .cpl li{display:flex;gap:9px;font-size:13.5px;color:var(--mu);line-height:1.5;}
+    .cpl li::before{content:'✓';color:var(--grn);font-weight:800;flex-shrink:0;margin-top:1px;}
+    .cpl li.ng::before{content:'✗';color:var(--red);}
+    .cpl li strong{color:var(--tx);font-weight:600;}
+
+    .form-sec{background:white;}
+    .fwrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+    .fl h2{font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.5px;margin-bottom:14px;}
+    .fl p{font-size:15px;color:var(--mu);line-height:1.75;margin-bottom:28px;}
+    .fts{display:flex;flex-direction:column;gap:13px;}
+    .ft2{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--tx2);}
+    .fdot{width:28px;height:28px;background:#dcfce7;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+    .form-photo{margin-top:32px;border-radius:16px;overflow:hidden;height:180px;}
+    .form-photo img{width:100%;height:100%;object-fit:cover;}
+    .fr2{background:var(--bg);border:1.5px solid var(--brd);border-radius:20px;padding:30px;}
+    .fg{margin-bottom:14px;}
+    .fg label{display:block;font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+    .fg label .r{color:var(--red);}
+    .fg input,.fg select,.fg textarea{width:100%;background:white;border:1.5px solid var(--brd);border-radius:10px;padding:11px 14px;color:var(--tx);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(37,99,235,.08);}
+    .fg input::placeholder{color:var(--mu);}
+    .fg textarea{resize:vertical;min-height:75px;}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .phw{display:flex;gap:6px;}
+    .php{background:var(--bg);border:1.5px solid var(--brd);border-radius:10px;padding:11px 12px;font-size:13px;font-weight:600;color:var(--mu);white-space:nowrap;}
+    .bsub{width:100%;background:linear-gradient(135deg,var(--acc),var(--acc2));color:white;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:var(--shadow-lg);margin-top:8px;transition:opacity .2s,transform .15s;}
+    .bsub:hover{opacity:.9;transform:translateY(-1px);}
+    .pnote{text-align:center;font-size:11px;color:var(--mu);margin-top:10px;}
+    #mok{display:none;background:#f0fdf4;border:1.5px solid #86efac;border-radius:12px;padding:18px;text-align:center;margin-top:14px;}
+    #mok p{color:var(--grn);font-weight:800;font-size:15px;}
+    #merr{display:none;background:#fef2f2;border:1.5px solid #fca5a5;border-radius:12px;padding:14px;text-align:center;margin-top:14px;}
+    #merr p{color:var(--red);font-size:14px;font-weight:600;}
+
+    footer{background:var(--tx);padding:40px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+    .flogo{font-size:15px;font-weight:800;color:white;display:flex;align-items:center;gap:9px;}
+    .flinks{display:flex;gap:22px;}
+    .flinks a{color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;}
+    .flinks a:hover{color:white;}
+    .fcopy{font-size:12px;color:rgba(255,255,255,.4);}
+    .wa{position:fixed;bottom:22px;right:22px;background:#25d366;color:white;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 6px 18px rgba(37,211,102,.4);text-decoration:none;z-index:99;}
+    @media(max-width:860px){
+      .hero,.split-sec,.fwrap{grid-template-columns:1fr;gap:36px;}
+      .hero::before{display:none;}
+      .hero-r{order:-1;}
+      .stats{grid-template-columns:repeat(2,1fr);}
+      .steps,.cmpg{grid-template-columns:1fr;}
+      .cflds{grid-template-columns:1fr 1fr;}
+      .cflds .cbtn{grid-column:1/-1;}
+      .frow{grid-template-columns:1fr;}
+      .nlinks{display:none;}
+    }
+    @media(max-width:520px){.cflds{grid-template-columns:1fr;}.stats{grid-template-columns:1fr 1fr;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nlogo"><div class="nlogo-i">🏥</div> CotizaIsapre</a>
+  <ul class="nlinks">
+    <li><a href="#como">Cómo funciona</a></li>
+    <li><a href="#cmp">Fonasa vs Isapre</a></li>
+    <li><a href="#cform">Cotizar</a></li>
+  </ul>
+  <button class="ncta" onclick="document.getElementById('cform').scrollIntoView({behavior:'smooth'})">Cotizar gratis →</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-l">
+    <div class="hbadge"><div class="bdot"></div> Asesoría gratuita · Chile 2026</div>
+    <h1>Tu Isapre ideal<br><span class="grad">en 30 segundos</span></h1>
+    <p class="hsub">Compara todas las Isapres de Chile y encuentra el plan con mejor cobertura o mayor ahorro según tu sueldo. Sin trámites ni costos ocultos.</p>
+    <div class="hpills">
+      <span class="pill">🔒 100% gratis</span>
+      <span class="pill">📋 Sin papeleos</span>
+      <span class="pill">⚡ Resultados al instante</span>
+    </div>
+    <div class="hbtns">
+      <button class="btn-p" onclick="document.getElementById('cotizador').scrollIntoView({behavior:'smooth'})">Ver planes ahora →</button>
+      <button class="btn-g" onclick="document.getElementById('como').scrollIntoView({behavior:'smooth'})">¿Cómo funciona?</button>
+    </div>
+    <p class="htrust">Sin compromiso. <span>No pedimos datos personales</span> para mostrar precios.</p>
+  </div>
+  <div class="hero-r">
+    <div class="hero-img-wrap">
+      <img src="/static/img/hero.png" alt="Familia feliz con médico"/>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><p>7</p><span>Isapres disponibles</span></div>
+  <div class="stat"><p>100%</p><span>Asesoría gratuita</span></div>
+  <div class="stat"><p>24h</p><span>Tiempo de respuesta</span></div>
+  <div class="stat"><p>$0</p><span>Costo del trámite</span></div>
+</div>
+
+<div class="sec" id="cotizador">
+  <div style="text-align:center;max-width:560px;margin:0 auto">
+    <p class="slbl">Cotizador inteligente</p>
+    <h2 class="sttl">Calcula tu plan en segundos</h2>
+    <p class="ssub">Ingresa tu edad, cargas y sueldo. El resto lo hacemos nosotros.</p>
+  </div>
+  <div class="cot-box">
+    <div class="cflds">
+      <div class="cg"><label>Edad</label><input type="number" id="ced" placeholder="Ej: 32" min="18" max="80"/></div>
+      <div class="cg"><label>N° de cargas</label>
+        <select id="cca">
+          <option value="0">Sin cargas</option><option value="1">1 carga</option>
+          <option value="2">2 cargas</option><option value="3">3 cargas</option><option value="4">4 o más</option>
+        </select>
+      </div>
+      <div class="cg"><label>Sueldo líquido</label><input type="number" id="csu" placeholder="Ej: 1.200.000"/></div>
+      <button class="cbtn" onclick="calcular()">Calcular →</button>
+    </div>
+    <p style="font-size:11px;color:var(--mu);margin-top:12px">🔒 No pedimos nombre ni correo para mostrar los precios.</p>
+    <div id="cres">
+      <p class="rlbl" id="rlbl"></p>
+      <div class="rgrid" id="rgrid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec steps-sec" id="como">
+  <div style="text-align:center;max-width:540px;margin:0 auto">
+    <p class="slbl">Proceso simple</p>
+    <h2 class="sttl">¿Cómo funciona?</h2>
+    <p class="ssub">Tres pasos y listo. Sin filas, sin papeleo, sin costo.</p>
+  </div>
+  <div class="steps">
+    <div class="sc"><div class="snum">1</div><h3 class="sc-ttl">Calcula tu cotización</h3><p class="sc-txt">Ingresa tu edad, cargas y sueldo. Calculamos automáticamente tu 7% y buscamos los mejores planes según el valor UF vigente.</p></div>
+    <div class="sc"><div class="snum">2</div><h3 class="sc-ttl">Compara Isapres</h3><p class="sc-txt">Analizamos las 7 Isapres abiertas: Banmédica, Colmena, Consalud, Cruz Blanca, Nueva MasVida, Vida Tres y Esencial con datos actualizados 2026.</p></div>
+    <div class="sc"><div class="snum">3</div><h3 class="sc-ttl">Te asesoramos gratis</h3><p class="sc-txt">Un asesor especializado te contacta para guiarte en el proceso de cambio. Sin costo, sin letra chica, sin trámites complicados.</p></div>
+  </div>
+</div>
+
+<div class="sec" style="background:white">
+  <div class="split-sec">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&h=360&fit=crop&q=80" alt="Doctor y paciente"/>
+      <div class="img-tag">🏥 Cobertura privada</div>
+      <div class="img-badge2">Hasta 90% cobertura</div>
+    </div>
+    <div class="split-txt">
+      <p class="slbl">Por qué cambiarse</p>
+      <h2>Protege a tu familia con el plan <span class="grad">correcto</span></h2>
+      <p>Muchas personas pagan más de lo necesario o tienen menos cobertura de la que merecen. Nuestros asesores analizan tu situación y te recomiendan el plan óptimo.</p>
+      <ul class="split-list">
+        <li><div class="sli-dot">✓</div> Acceso a las mejores clínicas privadas de Chile</li>
+        <li><div class="sli-dot">✓</div> Cobertura para ti y todas tus cargas legales</li>
+        <li><div class="sli-dot">✓</div> Atención rápida sin largas listas de espera</li>
+        <li><div class="sli-dot">✓</div> Cambio de Isapre sin costos ni trámites complejos</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="cmp" style="background:var(--bg)">
+  <div style="text-align:center;max-width:560px;margin:0 auto">
+    <p class="slbl">Análisis comparativo</p>
+    <h2 class="sttl">Fonasa vs Isapre 2026:<br>¿Cuál te conviene?</h2>
+    <p class="ssub">Conoce las diferencias clave antes de decidir.</p>
+  </div>
+  <div class="cmpg">
+    <div class="cpc">
+      <div class="cph"><div class="cpico if">🏛️</div><div><p class="cpn">Fonasa</p><p class="cpt">Sistema Público</p></div></div>
+      <ul class="cpl">
+        <li><strong>Costo:</strong> Solo 7% obligatorio, sin cargo adicional.</li>
+        <li><strong>Cobertura:</strong> Garantías GES/AUGE para 87 enfermedades.</li>
+        <li><strong>Respaldo:</strong> Garantizado por el Estado chileno.</li>
+        <li class="ng"><strong>Tiempos:</strong> Listas de espera de semanas o meses.</li>
+        <li class="ng"><strong>Clínicas:</strong> Acceso limitado al sistema privado.</li>
+      </ul>
+    </div>
+    <div class="cpc ft">
+      <div class="cph"><div class="cpico ii">💎</div><div><p class="cpn">Isapre</p><p class="cpt pr">Sistema Privado</p></div></div>
+      <ul class="cpl">
+        <li><strong>Costo:</strong> 7% base + adicional según el plan elegido.</li>
+        <li><strong>Clínicas:</strong> Acceso directo a Clínica UC, MEDS, Dávila y más.</li>
+        <li><strong>Atención:</strong> Rápida, sin largas listas de espera.</li>
+        <li><strong>Cargas:</strong> Planes familiares con descuentos especiales.</li>
+        <li><strong>Asesoría:</strong> Cambio gestionado por un experto sin costo.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sec form-sec" id="cform">
+  <div class="fwrap">
+    <div class="fl">
+      <p class="slbl">Habla con nosotros</p>
+      <h2>Cotiza tu Isapre con un asesor <span class="grad">gratis</span></h2>
+      <p>Déjanos tus datos y te contactamos en menos de 24 horas para ayudarte a elegir el plan perfecto para ti y tu familia.</p>
+      <div class="fts">
+        <div class="ft2"><div class="fdot">✓</div> Comparación gratuita de todas las Isapres</div>
+        <div class="ft2"><div class="fdot">✓</div> Asesor personal sin costo adicional</div>
+        <div class="ft2"><div class="fdot">✓</div> Cambio sin trámites ni papeleo</div>
+        <div class="ft2"><div class="fdot">✓</div> Tus datos protegidos y confidenciales</div>
+      </div>
+      <div class="form-photo">
+        <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=500&h=180&fit=crop&q=80" alt="Médico con paciente feliz"/>
+      </div>
+    </div>
+    <div class="fr2">
+      <form id="cForm">
+        <div class="frow">
+          <div class="fg"><label>Nombre completo <span class="r">*</span></label><input name="nombre" type="text" placeholder="Ej: Juan Pérez" required/></div>
+          <div class="fg"><label>Correo electrónico <span class="r">*</span></label><input name="correo" type="email" placeholder="tu@correo.cl" required/></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>Teléfono <span class="r">*</span></label>
+            <div class="phw"><div class="php">🇨🇱 +569</div><input name="telefono" type="tel" placeholder="12345678" maxlength="8" required style="flex:1"/></div>
+          </div>
+          <div class="fg"><label>Edad <span class="r">*</span></label><input name="edad" type="number" placeholder="Ej: 32" min="18" max="99" required/></div>
+        </div>
+        <div class="fg"><label>Isapre actual <span class="r">*</span></label>
+          <select name="isapre" required>
+            <option value="">Selecciona tu Isapre actual</option>
+            <option>Banmédica</option><option>Colmena Golden Cross</option><option>Cruz Blanca</option>
+            <option>Consalud</option><option>Vida Tres</option><option>MasVida</option>
+            <option>Esencial</option><option>Nueva MasVida</option><option>FONASA</option>
+          </select>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>Rango de sueldo <span class="r">*</span></label>
+            <select name="sueldo" required>
+              <option value="">Seleccionar</option>
+              <option>Menos de $600.000</option><option>$600.000 – $800.000</option>
+              <option>$800.000 – $1.200.000</option><option>$1.200.000 – $2.000.000</option>
+              <option>Más de $2.000.000</option>
+            </select>
+          </div>
+          <div class="fg"><label>Cargas</label>
+            <select name="cargas"><option>Sin cargas</option><option>1 carga</option><option>2 cargas</option><option>3 cargas</option><option>4 o más</option></select>
+          </div>
+        </div>
+        <div class="fg"><label>Región <span class="r">*</span></label>
+          <select name="region" required>
+            <option value="">Selecciona tu región</option>
+            <option>Región Metropolitana</option><option>Valparaíso</option><option>Biobío</option>
+            <option>La Araucanía</option><option>Maule</option><option>O'Higgins</option>
+            <option>Los Lagos</option><option>Antofagasta</option><option>Coquimbo</option>
+            <option>Los Ríos</option><option>Aysén</option><option>Magallanes</option>
+            <option>Arica y Parinacota</option><option>Ñuble</option>
+          </select>
+        </div>
+        <div class="fg"><label>Mensaje (opcional)</label><textarea name="msg" placeholder="Cuéntanos sobre clínicas de preferencia, condiciones especiales, plan actual..."></textarea></div>
+        <button type="submit" class="bsub">✉️ SOLICITAR ASESORÍA GRATIS</button>
+      </form>
+      <div id="mok">
+        <p>✅ ¡Solicitud enviada con éxito!</p>
+        <p style="color:var(--grn);font-weight:400;font-size:13px;margin-top:5px">Te contactaremos en menos de 24 horas 🎉</p>
+      </div>
+      <div id="merr"><p>❌ Ocurrió un error. Intenta nuevamente.</p></div>
+      <p class="pnote">🔒 Tus datos están protegidos. No los compartimos con terceros.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo">
+    <div style="width:26px;height:26px;background:linear-gradient(135deg,var(--acc),var(--acc2));border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;">🏥</div>
+    CotizaIsapre
+  </div>
+  <div class="flinks"><a href="#">Privacidad</a><a href="#">Términos</a><a href="#">Contacto</a></div>
+  <p class="fcopy">© 2026 CotizaIsapre · Chile</p>
+</footer>
+
+<a class="wa" href="https://wa.me/56912345678?text=Hola%2C+quiero+cotizar+mi+Isapre" target="_blank">💬</a>
+
+<script>
+const UF=38500;
+function clp(n){return new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n);}
+function calcular(){
+  const edad=parseInt(document.getElementById('ced').value)||0;
+  const cargas=parseInt(document.getElementById('cca').value)||0;
+  const sueldo=parseInt(document.getElementById('csu').value)||0;
+  if(!sueldo||!edad){alert('Ingresa tu edad y sueldo líquido.');return;}
+  const base=Math.round(sueldo*0.07);
+  const fac=Math.max(0.85,1+(edad-30)*0.005);
+  const planes=[
+    {n:'Banmédica',uf:2.5+cargas*0.8,b:'⭐ Mejor cobertura'},
+    {n:'Colmena',uf:2.1+cargas*0.7,b:'💰 Mejor precio'},
+    {n:'Cruz Blanca',uf:2.3+cargas*0.75,b:''},
+    {n:'Consalud',uf:2.2+cargas*0.65,b:''},
+    {n:'Vida Tres',uf:2.4+cargas*0.8,b:''},
+    {n:'Nueva MasVida',uf:1.9+cargas*0.6,b:'💰 Más económico'},
+    {n:'Esencial',uf:1.8+cargas*0.55,b:''},
+  ];
+  document.getElementById('rlbl').textContent=`Planes estimados · ${edad} años, ${cargas} carga(s), ${clp(sueldo)} líquido — base 7%: ${clp(base)}/mes`;
+  document.getElementById('rgrid').innerHTML=planes.map(p=>{
+    const precio=Math.round(p.uf*fac*UF);
+    const diff=precio-base;
+    const ex=diff>0?`<span style="font-size:11px;color:var(--mu)">+${clp(diff)} adicional</span>`:`<span style="font-size:11px;color:var(--grn)">Cubre con tu 7% ✓</span>`;
+    return`<div class="rcard"><div><p class="rn">${p.n}</p><p class="rp">${clp(precio)}<span style="font-size:12px;color:var(--mu)">/mes</span></p>${ex}</div>${p.b?`<div class="rbadge">${p.b}</div>`:''}</div>`;
+  }).join('');
+  document.getElementById('cres').style.display='block';
+}
+document.getElementById('cForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=this.querySelector('.bsub');
+  btn.textContent='Enviando...';btn.disabled=true;
+  const fd=Object.fromEntries(new FormData(this).entries());
+  try{
+    const r=await fetch('/cotizar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fd)});
+    const d=await r.json();
+    if(d.ok){this.style.display='none';document.getElementById('mok').style.display='block';}
+    else throw new Error();
+  }catch{
+    document.getElementById('merr').style.display='block';
+    btn.textContent='✉️ SOLICITAR ASESORÍA GRATIS';btn.disabled=false;
+  }
+});
+</script>
+</body>
+</html>

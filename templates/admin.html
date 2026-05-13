@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Panel de Leads | CotizaIsapre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--acc:#2563eb;--acc2:#7c3aed;--grn:#059669;--red:#ef4444;--amb:#d97706;
+          --tx:#0f172a;--mu:#64748b;--brd:#e2e8f0;--bg:#f5f7ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--tx);}
+    nav{background:white;border-bottom:1px solid var(--brd);padding:0 5%;height:60px;
+        display:flex;align-items:center;justify-content:space-between;}
+    .nlogo{font-size:16px;font-weight:800;display:flex;align-items:center;gap:9px;}
+    .nlogo-i{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),var(--acc2));
+             border-radius:9px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px;}
+    .nav-r{display:flex;align-items:center;gap:16px;}
+    .nav-r a{font-size:13px;color:var(--mu);text-decoration:none;font-weight:500;}
+    .nav-r a:hover{color:var(--acc);}
+    .logout-btn{background:#fef2f2;border:1px solid #fca5a5;color:var(--red);
+                font-size:13px;font-weight:600;padding:6px 14px;border-radius:7px;
+                cursor:pointer;text-decoration:none;font-family:inherit;}
+
+    .main{max-width:1200px;margin:0 auto;padding:32px 5%;}
+    h1{font-size:22px;font-weight:800;margin-bottom:4px;}
+    .sub{font-size:14px;color:var(--mu);margin-bottom:28px;}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+    .stat-card{background:white;border:1px solid var(--brd);border-radius:12px;padding:18px 20px;}
+    .stat-card .num{font-size:28px;font-weight:800;margin-bottom:3px;}
+    .stat-card .lbl{font-size:13px;color:var(--mu);}
+    .stat-card.nuevo .num{color:var(--acc);}
+    .stat-card.total .num{color:var(--tx);}
+    .stat-card.verde .num{color:var(--grn);}
+
+    /* TOOLBAR */
+    .toolbar{display:flex;gap:12px;align-items:center;margin-bottom:20px;flex-wrap:wrap;}
+    .search-wrap{flex:1;min-width:200px;position:relative;}
+    .search-wrap input{width:100%;background:white;border:1.5px solid var(--brd);border-radius:9px;
+                       padding:9px 14px 9px 36px;font-size:14px;font-family:inherit;outline:none;
+                       transition:border-color .2s;}
+    .search-wrap input:focus{border-color:var(--acc);}
+    .search-wrap::before{content:'🔍';position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;}
+    .filter-btns{display:flex;gap:6px;flex-wrap:wrap;}
+    .fbtn{background:white;border:1.5px solid var(--brd);color:var(--mu);font-size:13px;font-weight:600;
+          padding:8px 16px;border-radius:8px;cursor:pointer;text-decoration:none;font-family:inherit;
+          transition:all .2s;}
+    .fbtn:hover,.fbtn.active{background:var(--acc);border-color:var(--acc);color:white;}
+    .fbtn.nuevo.active{background:var(--acc);}
+    .fbtn.contactado.active{background:var(--amb);border-color:var(--amb);}
+    .fbtn.cerrado.active{background:var(--grn);border-color:var(--grn);}
+
+    /* TABLE */
+    .table-wrap{background:white;border:1px solid var(--brd);border-radius:14px;overflow:hidden;}
+    table{width:100%;border-collapse:collapse;}
+    th{background:#f8fafc;padding:12px 16px;text-align:left;font-size:11px;font-weight:700;
+       color:var(--mu);text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--brd);}
+    td{padding:14px 16px;font-size:13px;border-bottom:1px solid #f1f5f9;vertical-align:middle;}
+    tr:last-child td{border-bottom:none;}
+    tr:hover td{background:#fafbff;}
+    .lead-name{font-weight:700;color:var(--tx);font-size:14px;}
+    .lead-contact{font-size:12px;color:var(--mu);margin-top:2px;}
+    .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;}
+    .badge.Nuevo{background:#eff6ff;color:var(--acc);}
+    .badge.Contactado{background:#fef3c7;color:var(--amb);}
+    .badge.Cerrado{background:#dcfce7;color:var(--grn);}
+    .estado-form{display:flex;gap:6px;align-items:center;}
+    .estado-sel{background:transparent;border:1px solid var(--brd);border-radius:7px;
+                padding:5px 8px;font-size:12px;font-family:inherit;outline:none;cursor:pointer;}
+    .btn-save{background:var(--acc);color:white;border:none;border-radius:7px;
+              padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;}
+    .btn-del{background:#fef2f2;border:1px solid #fca5a5;color:var(--red);border-radius:7px;
+             padding:5px 10px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;}
+    .wa-link{display:inline-flex;align-items:center;gap:4px;color:#25d366;font-weight:600;
+             font-size:12px;text-decoration:none;}
+    .wa-link:hover{text-decoration:underline;}
+    .empty{text-align:center;padding:48px;color:var(--mu);}
+    .fecha-td{font-size:12px;color:var(--mu);}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nlogo"><div class="nlogo-i">🏥</div> CotizaIsapre · Admin</div>
+  <div class="nav-r">
+    <a href="/">Ver sitio →</a>
+    <a href="/admin/logout" class="logout-btn">Cerrar sesión</a>
+  </div>
+</nav>
+
+<div class="main">
+  <h1>Panel de Leads</h1>
+  <p class="sub">Gestiona las cotizaciones recibidas y su estado de seguimiento.</p>
+
+  <div class="stats">
+    <div class="stat-card total">
+      <div class="num">{{ total }}</div>
+      <div class="lbl">Total cotizaciones</div>
+    </div>
+    <div class="stat-card nuevo">
+      <div class="num">{{ nuevos }}</div>
+      <div class="lbl">🔵 Sin contactar</div>
+    </div>
+    <div class="stat-card verde">
+      <div class="num">{{ total - nuevos }}</div>
+      <div class="lbl">✅ Gestionados</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <form method="GET" action="/admin/leads" class="search-wrap">
+      <input name="q" type="text" placeholder="Buscar por nombre, correo o teléfono..."
+             value="{{ buscar }}" autocomplete="off"/>
+      <input name="estado" type="hidden" value="{{ filtro }}"/>
+    </form>
+    <div class="filter-btns">
+      <a href="/admin/leads?estado=todos&q={{ buscar }}" class="fbtn {% if filtro=='todos' %}active{% endif %}">Todos</a>
+      <a href="/admin/leads?estado=Nuevo&q={{ buscar }}" class="fbtn nuevo {% if filtro=='Nuevo' %}active contactado{% endif %}">🔵 Nuevos</a>
+      <a href="/admin/leads?estado=Contactado&q={{ buscar }}" class="fbtn {% if filtro=='Contactado' %}active contactado{% endif %}">🟡 Contactados</a>
+      <a href="/admin/leads?estado=Cerrado&q={{ buscar }}" class="fbtn {% if filtro=='Cerrado' %}active cerrado{% endif %}">🟢 Cerrados</a>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Cliente</th>
+          <th>Contacto</th>
+          <th>Isapre / Sueldo</th>
+          <th>Cargas / Región</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for l in leads %}
+        <tr>
+          <td style="font-weight:700;color:var(--mu)">#{{ l.id }}</td>
+          <td>
+            <div class="lead-name">{{ l.nombre }}</div>
+            <div class="lead-contact">{{ l.edad }} años</div>
+          </td>
+          <td>
+            <a class="wa-link" href="https://wa.me/569{{ l.telefono }}?text=Hola+{{ l.nombre | urlencode }}%2C+te+contactamos+por+tu+cotización+de+Isapre+😊" target="_blank">
+              💬 {{ l.telefono }}
+            </a>
+            <div class="lead-contact">{{ l.correo }}</div>
+          </td>
+          <td>
+            <div style="font-weight:600">{{ l.isapre or '—' }}</div>
+            <div class="lead-contact">{{ l.sueldo or '—' }}</div>
+          </td>
+          <td>
+            <div style="font-weight:600">{{ l.cargas or '—' }}</div>
+            <div class="lead-contact">{{ l.region or '—' }}</div>
+          </td>
+          <td class="fecha-td">{{ l.fecha[:16] }}</td>
+          <td>
+            <span class="badge {{ l.estado }}">{{ l.estado }}</span>
+          </td>
+          <td>
+            <form method="POST" action="/admin/estado/{{ l.id }}" class="estado-form" style="margin-bottom:6px">
+              <select name="estado" class="estado-sel">
+                <option {% if l.estado=='Nuevo' %}selected{% endif %}>Nuevo</option>
+                <option {% if l.estado=='Contactado' %}selected{% endif %}>Contactado</option>
+                <option {% if l.estado=='Cerrado' %}selected{% endif %}>Cerrado</option>
+              </select>
+              <button type="submit" class="btn-save">Guardar</button>
+            </form>
+            <form method="POST" action="/admin/eliminar/{{ l.id }}"
+                  onsubmit="return confirm('¿Eliminar lead #{{ l.id }}?')">
+              <button type="submit" class="btn-del">🗑 Eliminar</button>
+            </form>
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="8" class="empty">No hay cotizaciones aún 📭</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
